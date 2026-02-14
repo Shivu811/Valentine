@@ -1,0 +1,254 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: Arial;
+    background: pink;
+    text-align: center;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px; /* padding for small screens */
+}
+
+.active { display: flex; }
+
+#gameArea {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 25px;
+    pointer-events: none;
+}
+
+#bucket {
+    position: absolute;
+    bottom: 5%;
+    width: 20%; /* scaled relative to screen */
+    max-width: 150px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+}
+
+#yesBtn { background: green; color: white; }
+#noBtn { background: red; color: white; }
+
+.top-image {
+    width: auto;
+    max-width: 220px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.vault-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+  user-select: none;
+}
+
+.vault-title {
+  color: #e91e63;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.vault-card p {
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #444;
+}
+
+.pin-display {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #e91e63;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.dot.filled { background: #e91e63; }
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.key {
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 15px;
+  background: #fafafa;
+  box-shadow: 0 5px 15px rgba(233, 30, 99, 0.2);
+  cursor: pointer;
+  transition: background 0.3s;
+  user-select: none;
+}
+
+.key:hover { background: #fce4ec; }
+
+.unlock-btn {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(to right, #ff4b6e, #ff758c);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.unlock-btn:disabled { background: #f8bbd0; cursor: not-allowed; }
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left:0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: #e91e63;
+    font-size: 20px;
+}
+
+.vault-title {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.vault-card p {
+    font-family: 'Comic Neue', sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #ff4081;
+    font-size: 20px;
+}
+
+.unlock-btn {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    color: white;
+    background: linear-gradient(to right, #ff4b6e, #ff758c);
+    border-radius: 15px;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    box-shadow: 2px 5px 10px rgba(0,0,0,0.2);
+}
+
+.unlock-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 2px 8px 15px rgba(0,0,0,0.3);
+}
+
+/* Button container */
+.buttons-container {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+/* No button movement */
+#noBtn {
+    transition: 0.2s ease;
+}
+
+/* Final page */
+#finalPage h2 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    text-align: center;
+    margin: 0 10px;
+    font-size: 20px;
+}
+
+/* Basket jump animation */
+@keyframes jump {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-30px); }
+    50% { transform: translateY(0); }
+    70% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
+}
+
+.jump {
+    animation: jump 0.5s ease;
+}
+
+/* ===== Responsive Media Queries ===== */
+@media screen and (max-width: 768px) {
+    .vault-card { width: 90%; padding: 25px 15px; }
+    .key { font-size: 18px; padding: 12px 0; }
+    .unlock-btn { font-size: 20px; padding: 12px 15px; }
+    #finalPage h2 { font-size: 18px; }
+    .buttons-container { height: 120px; gap: 10px; }
+    #bucket { width: 25%; max-width: 120px; }
+}
+
+@media screen and (max-width: 480px) {
+    .vault-card { width: 95%; padding: 20px 10px; }
+    .key { font-size: 16px; padding: 10px 0; }
+    .unlock-btn { font-size: 18px; padding: 10px 12px; }
+    #finalPage h2 { font-size: 16px; }
+    .buttons-container { height: 100px; gap: 8px; flex-direction: column; }
+    #bucket { width: 30%; max-width: 100px; }
+}

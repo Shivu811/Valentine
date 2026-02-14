@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy valentine's day ❤️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- PIN PAGE -->
+<div id="pinPage" class="page active">
+    <div class="vault-card">
+        <h2 class="vault-title">Date when we made it official 🔒</h2>
+        <p> Enter DD/MM</p>
+
+        <div id="pinDisplay" class="pin-display">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+
+        <div class="keypad">
+            <button class="key">1</button>
+            <button class="key">2</button>
+            <button class="key">3</button>
+            <button class="key">4</button>
+            <button class="key">5</button>
+            <button class="key">6</button>
+            <button class="key">7</button>
+            <button class="key">8</button>
+            <button class="key">9</button>
+            <button class="key">❤️</button>
+            <button class="key">0</button>
+            <button class="key" id="backspaceBtn">⌫</button>
+        </div>
+
+        <button id="unlockBtn" class="unlock-btn" disabled>UNLOCK   LOVE</button>
+    </div>
+</div>
+
+<!-- HEART GAME -->
+<div id="page1" class="page">
+    <img src="images/blowing.png" id="fountainImg" class="top-image">
+    <div id="gameArea">
+        <img src="images/basket.png" id="bucket">
+    </div>
+</div>
+
+<!-- QUESTION PAGE -->
+<!-- QUESTION PAGE -->
+<div id="page2" class="page">
+    <img src="images/question.jpg" class="top-image" alt="Question Image">
+    <h2>Will you be my date for tonight? 💖</h2>
+
+    <div id="questionButtons" class="buttons-container">
+        <button id="yesBtn">Yes ❤️</button>
+        <button id="noBtn">No 😢</button>
+    </div>
+</div>
+
+
+<!-- FINAL PAGE -->
+<!-- FINAL PAGE -->
+<div id="finalPage" class="page">
+    <img src="images/dinner.png" alt="Date Night" class="top-image" style="max-width:300px; margin-bottom:20px;">
+    <h2>😊 Perfect, I made reservation for tonight. Get ready at 10:00pm with your new dark purple shirt on.</h2>
+</div>
+
+
+<!-- POPUP -->
+<div id="popupModal" class="popup">
+    <div class="popup-box">
+        <p id="popupText"></p>
+        <button id="popupOkBtn">OK</button>
+    </div>
+</div>
+
+<!-- HEART POPUP -->
+<div id="heartPopup" class="popup">
+    <div class="popup-box">
+        <span id="heartPopupText"></span>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
